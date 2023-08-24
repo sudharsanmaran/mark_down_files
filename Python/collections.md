@@ -265,7 +265,7 @@ Keep in mind that `namedtuple` is suitable for scenarios where the data structur
 - **Key Lookup:** Retrieve a value using a specific key.
 - **Key Insertion and Update:** Add or update values associated with keys.
 - **Key Deletion:** Remove key-value pairs from the dictionary.
-- **popitem:** Remove and return a (key, value) pair based on order.
+- **popitem:** Remove and return a (key, value) pair based on order. By default, the last pair is removed, but you can specify `last=False` to remove the first pair.
 
 ### Key Features
 
@@ -286,4 +286,65 @@ Keep in mind that `namedtuple` is suitable for scenarios where the data structur
 
 `OrderedDict` enhances the standard `dict` class by maintaining order, making it a valuable tool for various scenarios. Its efficient reordering capabilities make it suitable for tasks like implementing LRU caches and preserving order-sensitive operations.
 
+
+## UserDict
+
+`UserDict` in Python is a class provided by the `collections` module that acts as a wrapper around dictionary objects. While its usage has been partially replaced by direct subclassing from `dict`, `UserDict` remains a convenient choice for situations where the underlying dictionary is accessible as an attribute.
+
+### Properties
+
+- **Ordered:** N/A
+- **Duplicates:** True (as per the behavior of dictionaries)
+- **Mutable:** True
+
+### Underlying Process
+
+`UserDict` simulates a dictionary using a regular dictionary object, which is accessible through the `data` attribute of `UserDict` instances. If an `initialdata` argument is provided, the data is initialized with its contents.
+
+### Usage and Subclassing
+
+- `UserDict` supports methods and operations of mappings, providing similar functionality to regular dictionaries.
+- The `data` attribute refers to the underlying dictionary used to store the contents of the `UserDict` instance.
+- Subclasses of `UserDict` are expected to offer a constructor that can be called with or without arguments.
+
+## UserList
+
+`UserList` in Python acts as a wrapper around list objects, making it a useful base class for creating list-like classes with added behaviors. It remains relevant for situations where the underlying list is accessible as an attribute.
+
+### Properties
+
+- **Ordered:** True
+- **Duplicates:** True (as per the behavior of lists)
+- **Mutable:** True
+
+### Underlying Process
+
+`UserList` simulates a list using a regular list object, which is accessible through the `data` attribute of `UserList` instances. If a `list` argument is provided, the data is initially set to a copy of the list.
+
+### Usage and Subclassing
+
+- `UserList` supports methods and operations of mutable sequences, providing similar functionality to regular lists.
+- The `data` attribute refers to the underlying list used to store the contents of the `UserList` instance.
+- Subclasses of `UserList` are expected to offer a constructor that can be called with or without arguments.
+
+## UserString
+
+`UserString` in Python acts as a wrapper around string objects, offering a way to create customized string-like classes. It provides access to the underlying string as an attribute.
+
+### Properties
+
+- **Ordered:** True (since strings are ordered)
+- **Immutable:** True
+
+### Underlying Process
+
+`UserString` simulates a string using a regular string object, which is accessible through the `data` attribute of `UserString` instances. The `seq` argument is used to initialize the content of the `UserString`.
+
+### Usage and Subclassing
+
+- `UserString` supports methods and operations of strings, providing similar functionality to regular strings.
+- The `data` attribute refers to the underlying string used to store the contents of the `UserString` instance.
+- Subclasses of `UserString` can provide customized behavior for string-like operations.
+
+`UserDict`, `UserList`, and `UserString` classes offer wrapper functionalities around dictionary, list, and string objects, respectively. They provide convenient ways to create custom classes with added behaviors and easy access to the underlying data structures.
 
