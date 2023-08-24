@@ -135,3 +135,50 @@ Deques are particularly useful when you need to maintain a collection of element
 
 Keep in mind that while deques offer fast insertion and deletion at both ends, they might have slightly slower access times compared to lists due to their linked list implementation. Choose deques when the primary requirement is efficient insertion and deletion from both ends.
 
+## Defaultdict
+
+`defaultdict` in Python is a subclass of the built-in `dict` class provided by the `collections` module. It allows you to create dictionaries with default values for keys that do not yet exist in the dictionary. This is particularly useful for scenarios where you want to avoid key errors when accessing or modifying dictionary values.
+
+### Properties
+
+- **Ordered:** True (Python 3.7+)
+- **Duplicates:** True
+- **Mutable:** True
+
+### Underlying Process
+
+The `defaultdict` class is implemented by extending the behavior of the regular `dict` class. It takes a default factory function as an argument, which is used to provide default values for missing keys. When accessing a missing key, the `defaultdict` automatically creates a new entry with the default value provided by the factory function.
+
+### Time Complexity
+
+**Insertion and Deletion:**
+
+- **Addition:** Average O(1)
+  - Adding a key-value pair to a `defaultdict` has an average time complexity of O(1), similar to adding to a regular dictionary.
+
+- **Removal:** Average O(1)
+  - Removing a key-value pair from a `defaultdict` also has an average time complexity of O(1), similar to removal from a regular dictionary.
+
+**Access:**
+
+- Accessing values in a `defaultdict` by key: O(1) average case
+  - Accessing a value using a key in a `defaultdict` has an average time complexity of O(1), similar to accessing values in a regular dictionary.
+
+### `defaultdict` Operations
+
+`defaultdict` provides the same operations as the regular `dict` class:
+
+- **Key Lookup:** Retrieve a value using a specific key.
+- **Key Insertion and Update:** Add or update values associated with keys.
+- **Key Deletion:** Remove key-value pairs from the dictionary.
+
+### Default Factory Function
+
+The distinguishing feature of `defaultdict` is the default factory function, which allows you to specify default values for missing keys. Common factory functions include `int`, `list`, `set`, etc., depending on the desired default behavior.
+
+**Use Cases:**
+
+`defaultdict` is particularly useful when you want to create dictionaries with predefined default values. It's commonly used for scenarios like counting occurrences of items, grouping items by certain criteria, and handling missing keys without raising key errors.
+
+Keep in mind that `defaultdict` provides an elegant solution for handling missing keys, but it might not be suitable for all scenarios. If you need more advanced behaviors or custom handling of missing keys, you might consider using other approaches or data structures.
+
