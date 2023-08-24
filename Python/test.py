@@ -34,13 +34,24 @@ from collections import defaultdict, deque
 # print(stack)  # Output: deque([1, 3, 2])
 
 
-d = {'a': 1, 'b': 2, 'c': 3}
-# k = next(iter(d))
-# val = d.pop(k)
+# d = {'a': 1, 'b': 2, 'c': 3}
+# # k = next(iter(d))
+# # val = d.pop(k)
 
-first_value = (k := next(iter(d)), v := d.pop(k), v * 2)
+# first_value = (k := next(iter(d)), v := d.pop(k), v * 2)
 
-print("First key:", k)
-print("First value:", first_value[1])
-print("Square of popped value:", first_value[2])
-print("Modified dictionary:", d)
+# print("First key:", k)
+# print("First value:", first_value[1])
+# print("Square of popped value:", first_value[2])
+# print("Modified dictionary:", d)
+
+class Mydict(dict):
+   def __len__(self) -> int:
+      print("Mydict.__len__ called")
+      return super().__len__()
+   
+
+a = Mydict((('a', 1), ('b', 2)))
+a['a'] = 1
+a['b'] = 2
+print(len(a))
