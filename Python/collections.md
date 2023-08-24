@@ -182,3 +182,108 @@ The distinguishing feature of `defaultdict` is the default factory function, whi
 
 Keep in mind that `defaultdict` provides an elegant solution for handling missing keys, but it might not be suitable for all scenarios. If you need more advanced behaviors or custom handling of missing keys, you might consider using other approaches or data structures.
 
+
+## Namedtuple
+
+`namedtuple` in Python is a class provided by the `collections` module that creates a subclass of the built-in `tuple` class. It allows you to define a simple class for storing data as a tuple with named fields, providing a more readable and self-documenting alternative to using regular tuples.
+
+### Properties
+
+- **Ordered:** True
+- **Duplicates:** True
+- **Immutable:** True
+
+### Underlying Process
+
+`namedtuple` is implemented as a factory function that generates a new class derived from the `tuple` class. It takes the name of the new class and a sequence of field names as arguments. The generated class has a fixed number of fields, and each field can be accessed using dot notation.
+
+### Time Complexity
+
+`namedtuple` instances behave like regular tuples and have similar time complexities:
+
+- **Access:** O(1)
+  - Accessing elements in a `namedtuple` by index has constant-time complexity O(1), just like accessing elements in a regular tuple.
+
+**Named Field Access:**
+
+- Accessing fields in a `namedtuple` by name: O(1)
+  - Accessing fields using dot notation by their names also has constant-time complexity O(1).
+
+### `Namedtuple` Usage
+
+`namedtuple` provides several benefits:
+
+- **Readability:** Named fields enhance code readability and make it easier to understand the meaning of each element in the tuple.
+- **Self-Documenting:** Named fields serve as self-documentation for the data structure, eliminating the need for index-based access.
+- **Immutability:** `namedtuple` instances are immutable, ensuring data integrity and preventing accidental modifications.
+
+### `Namedtuple` Operations
+
+`namedtuple` instances behave like regular tuples and support tuple operations:
+
+- **Indexing:** Access elements using integer indices.
+- **Iteration:** Iterate through elements using a loop or comprehension.
+- **Slicing:** Create new `namedtuple` instances by slicing.
+- **Tuple Methods:** Use tuple methods like `count()` and `index()`.
+
+**Use Cases:**
+
+`namedtuple` is particularly useful when you need a lightweight data structure to store a fixed number of fields with meaningful names. It's often used for representing records, data points, and simple data containers where object-oriented overhead is not necessary.
+
+Keep in mind that `namedtuple` is suitable for scenarios where the data structure is immutable and you don't need advanced methods or inheritance. If you require additional behaviors or mutability, consider using custom classes.
+
+
+## OrderedDict
+
+`OrderedDict` in Python is a class provided by the `collections` module that maintains the order of elements based on their insertion order. It's particularly useful when you need to ensure the order of key-value pairs and operations related to reordering.
+
+### Properties
+
+- **Ordered:** True (Python 3.7+)
+- **Duplicates:** True
+- **Mutable:** True
+
+### Differences from Regular `dict`
+
+- `OrderedDict` remembers insertion order, making it useful for scenarios where order matters.
+- `OrderedDict` excels in reordering operations, whereas regular dictionaries prioritize mapping operations.
+- The algorithm of `OrderedDict` is optimized for reordering.
+
+### Time Complexity
+
+**Insertion and Deletion:**
+
+- **Addition:** Average O(1)
+- **Removal:** Average O(1)
+
+**Access:**
+
+- Accessing values by key: O(1) average case
+
+### `OrderedDict` Operations
+
+- **Key Lookup:** Retrieve a value using a specific key.
+- **Key Insertion and Update:** Add or update values associated with keys.
+- **Key Deletion:** Remove key-value pairs from the dictionary.
+- **popitem:** Remove and return a (key, value) pair based on order.
+
+### Key Features
+
+- Maintains insertion order, crucial for preserving order-sensitive operations.
+- Supports efficient reordering with `move_to_end()`.
+
+### Use Cases
+
+- Ensuring order preservation of key-value pairs.
+- Implementing LRU caches with efficient reordering.
+- Any scenario requiring order-preserving dictionary behavior.
+
+### Examples and Recipes
+
+- Implement custom order-preserving dictionary variants.
+- Use `OrderedDict` for implementing specialized caches.
+- Create `OrderedDict`-based caches for improved performance.
+
+`OrderedDict` enhances the standard `dict` class by maintaining order, making it a valuable tool for various scenarios. Its efficient reordering capabilities make it suitable for tasks like implementing LRU caches and preserving order-sensitive operations.
+
+
