@@ -1,4 +1,5 @@
 from collections import defaultdict, deque
+from itertools import count, cycle, repeat
 
 
 # def roundrobin(*iterables):
@@ -45,13 +46,27 @@ from collections import defaultdict, deque
 # print("Square of popped value:", first_value[2])
 # print("Modified dictionary:", d)
 
-class Mydict(dict):
-   def __len__(self) -> int:
-      print("Mydict.__len__ called")
-      return super().__len__()
+# class Mydict(dict):
+#    def __len__(self) -> int:
+#       print("Mydict.__len__ called")
+#       return super().__len__()
    
 
-a = Mydict((('a', 1), ('b', 2)))
-a['a'] = 1
-a['b'] = 2
-print(len(a))
+# a = Mydict((('a', 1), ('b', 2)))
+# a['a'] = 1
+# a['b'] = 2
+# print(len(a))
+
+from itertools import accumulate ,chain
+import operator
+# print(list(accumulate([1, 2, 3, 4, 5], func=operator.mul)))
+
+from functools import reduce
+
+numbers = [1, 2, 3, 4, 5]
+n2 = [1, 2, 3, 4, 5]
+
+n_n = [[1,2,3], [2,3,4], [3,4,5]]
+
+print(list(chain(numbers, n2)))
+print(list(chain.from_iterable(n_n)))
