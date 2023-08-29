@@ -61,12 +61,4 @@ from itertools import accumulate ,chain
 import operator
 # print(list(accumulate([1, 2, 3, 4, 5], func=operator.mul)))
 
-from functools import reduce
-
-numbers = [1, 2, 3, 4, 5]
-n2 = [1, 2, 3, 4, 5]
-
-n_n = [[1,2,3], [2,3,4], [3,4,5]]
-
-print(list(chain(numbers, n2)))
-print(list(chain.from_iterable(n_n)))
+Please make sure to refer to the official Google Calendar API documentation for the most accurate and up-to-date details.

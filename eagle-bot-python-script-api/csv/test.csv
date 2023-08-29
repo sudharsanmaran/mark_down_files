@@ -1,0 +1,25 @@
+module,Method,End Point,Properties,Param Type,Required,Description
+calender,DELETE,https://www.googleapis.com/calendar/v3/calendars/{calendarId},calendarId,path,yes,Calendar identifier.
+calender,PUT,https://www.googleapis.com/calendar/v3/calendars/calendarId,calendarId,path,yes,							
+,,,description(string),body,no,Description of the calendar.						
+,,,location(string),body,no,Geographic location of the calendar as free-form text.						
+,,,summary(string),body,no,Title of the calendar.						
+,,,timeZone(string),body,no,The time zone of the calendar. (Formatted as an IANA Time Zone Database name, e.g. "Europe/Zurich").						
+,,,,,,,
+,,,,,,,
+calender,POST,https://www.googleapis.com/calendar/v3/calendars,,,,,Create a secondary calendar.
+,,,"summary(string)",body,Required,Title of the calendar.
+,,,"description(string)",body,Optional,Description of the calendar.
+,,,"location(string)",body,Optional,Geographic location of the calendar as free-form text.
+,,,"summary(string)",body,Optional,Title of the calendar.
+,,,"timeZone(string)",body,Optional,The time zone of the calendar. (Formatted as an IANA Time Zone Database name, e.g. ""Europe/Zurich"").
+calendar,POST,https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events,,,,,Create an event within a specified calendar.
+,,,,,,,
+,,,calendarId(string, required),path,yes,Calendar identifier. To retrieve calendar IDs, call the `calendarList.list` method. If you want to access the primary calendar of the currently logged-in user, use the "primary" keyword.
+,,,,,,,
+,,,,,,,
+,,,"conferenceDataVersion(integer)",query,no,Version number of conference data supported by the API client. Version 0 assumes no conference data support and ignores conference data in the event's body. Version 1 enables support for copying of ConferenceData as well as for creating new conferences using the createRequest field of conferenceData. The default is 0. Acceptable values are 0 to 1, inclusive.
+,,,"maxAttendees(integer)",query,no,The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional.
+,,,"sendNotifications(boolean, deprecated)",query,no,Deprecated. Please use `sendUpdates` instead. Whether to send notifications about the creation of the new event. Note that some emails might still be sent even if you set the value to false. The default is false.
+,,,"sendUpdates(string)",query,no,Whether to send notifications about the creation of the new event. Note that some emails might still be sent. The default is false. Acceptable values are: "all", "externalOnly", "none".
+,,,"supportsAttachments(boolean)",query,no,Whether the API client performing the operation supports event attachments. Optional. The default is False.
